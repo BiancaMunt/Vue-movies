@@ -1,9 +1,16 @@
 <template>
   <div class="home">
+  <span>tv</span>Shows
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+
+export default {
+  name: "Home",
+  created() {
+    this.$store.dispatch('getAllData')
+  }
+}
 
 </script>
