@@ -1,6 +1,12 @@
 <template>
   <div class="home">
-  <span>tv</span>Shows
+  <h1><span>tv</span>Shows</h1>
+  <ul class="shows-list" v-for="show in this.$store.state.shows" :key="show.id">
+    <li>
+      {{ show.rating.average }}
+      {{ show.name }}
+    </li>
+  </ul>
   </div>
 </template>
 
@@ -8,9 +14,6 @@
 
 export default {
   name: "Home",
-  created() {
-    this.$store.dispatch('getAllData')
-  }
 }
 
 </script>

@@ -8,6 +8,24 @@
   </div>
 </template>
 
+<script>
+export default {
+  created() {
+    this.loadShowsData();
+  },
+  methods: {
+    loadShowsData() {
+      try {
+        this.$store.dispatch('getAllData');
+      } catch (e) {
+        this.error = 'An error has occured';
+      }
+    }
+  }
+}
+</script>
+
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
