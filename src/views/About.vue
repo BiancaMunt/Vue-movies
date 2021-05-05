@@ -15,12 +15,12 @@ import AppServices from '../services/AppServices'
 export default {
   data () {
     return {
-      show: null
+      show:{rating:{average:''}, image:{medium:''}}
     }
   },
   mounted () {
     AppServices.getOneShow(this.$route.params.id)
-      .then(data => (this.show = data))
+      .then((data) => (this.show = data))
   }
 }
 </script>

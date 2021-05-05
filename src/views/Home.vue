@@ -1,16 +1,7 @@
 <template>
   <div class="home">
   <h1><span>tv</span>Shows</h1>
-    <!-- <Search /> -->
-    <div class="search">
-    <input
-      type="text"
-      v-model="query"
-      @keypress.enter="searchShows(query)"
-      placeholder="Search your favorite show"
-    />
-    <button @click="searchShows(query)">Search</button>
-  </div>
+    <Search />
   <div>
     <ul class="shows-list">
       <li class="show-item" v-for="show in getSearchedShows" :key="show.id">
@@ -26,19 +17,13 @@
 
 <script>
 
-// import Search from '../components/Search';
-// import AppServices from '../services/AppServices';
 import { mapGetters, mapActions } from 'vuex';
+import Search from '../components/Search';
 
 export default {
   name: "Home",
-  data(){
-    return {
-      query:''
-    }
-  },
   components: {
-    // Search
+    Search
   },
   created() {
      this.getAllData();
@@ -46,7 +31,6 @@ export default {
   methods: {
   ...mapActions([
       'getAllData',
-      'searchShows'
     ])
   },
   computed: {
