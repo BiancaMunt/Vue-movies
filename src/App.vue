@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Home</router-link>
     </div>
     <router-view/>
   </div>
@@ -10,23 +9,13 @@
 
 <script>
 export default {
-  created() {
-    this.loadShowsData();
-  },
-  methods: {
-    loadShowsData() {
-      try {
-        this.$store.dispatch('getAllData');
-      } catch (e) {
-        this.error = 'An error has occured';
-      }
-    }
-  }
 }
 </script>
 
 
 <style lang="scss">
+@import 'bootstrap';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
