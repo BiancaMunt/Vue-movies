@@ -7,11 +7,11 @@
       placeholder="Search your favorite show"
     />
     <button @click="searchShows(query)">Search</button>
-    </div>
+  </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: "Search",
@@ -25,6 +25,11 @@ export default {
     'searchShows'
     ])
   },
+  computed: {
+    ...mapGetters([
+      'getSearchedShows',
+    ]),
+  }
 }
   
 </script>

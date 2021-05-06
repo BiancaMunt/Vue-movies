@@ -9,13 +9,18 @@ export default new Vuex.Store({
     shows: [],
     query: '',
     genres: [],
-    isSearch: false,
+    isMain: true,
   },
   mutations: {
     setAllShows(state, listShows) {
       state.shows = listShows;
     },
     updateSearch(state, query){
+      state.isMain = false;
+      state.query = query;
+    },
+    clearSearch(state, query){
+      state.isMain = true;
       state.query = query;
     },
   },
@@ -28,7 +33,7 @@ export default new Vuex.Store({
       return state.shows.filter((show) => show.name.toLowerCase().includes(state.query))
     },
     getGenres: state => {
-      let genres = state.shows.map((show) => show.genres).flat(); // creates an array of all the genres received from the api call
+      let genres = state.shows.map((show) => show.genres).flat(); 
       const unique = Array.from(new Set(genres)); // new Set creates an array of all the unique genres - removes the duplicates
       state.genres = unique;
       return state.genres;
@@ -42,7 +47,11 @@ export default new Vuex.Store({
       }
     },
     async searchShows ({ commit }, query) {
-      commit('updateSearch', query);
+      if(query.length !== 0) {
+        commit('updateSearch', query);
+      } else {
+        commit('clearSearch', query);
+      }
     }
   },
 })
