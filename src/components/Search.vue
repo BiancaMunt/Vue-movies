@@ -7,7 +7,7 @@
       placeholder="Search your favorite show"
     />
     <button @click="searchShows(query)">Search</button>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
   ...mapActions([
     'searchShows'
     ])
-  }, 
+  },
 }
   
 </script>

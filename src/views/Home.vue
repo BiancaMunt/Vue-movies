@@ -2,13 +2,17 @@
   <div class="home">
   <h1><span>tv</span>Shows</h1>
     <Search />
-  <div>
+  <div v-for="genre in getGenres" :key="genre">
+    <h3>{{ genre }}</h3>
     <ul class="shows-list">
       <li class="show-item" v-for="show in getSearchedShows" :key="show.id">
+        <!-- <h3 v-if="show.genres.some(genre)">{{ genre }}</h3> -->
+        <article v-if="show.genres.includes(genre)">
         <h4>{{ show.name }}</h4>
         <router-link :to="`/${show.id}`">
           <img :src="show.image.medium" :alt="show.name">
         </router-link> 
+        </article>
       </li>
     </ul>
   </div>
@@ -27,15 +31,17 @@ export default {
   },
   created() {
      this.getAllData();
+     
   },
   methods: {
   ...mapActions([
       'getAllData',
-    ])
+    ]),
   },
   computed: {
     ...mapGetters([
       'getSearchedShows',
+      'getGenres',
     ]),
   }
 }

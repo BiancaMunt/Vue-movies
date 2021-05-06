@@ -8,12 +8,16 @@ export default new Vuex.Store({
   state: {
     shows: [],
     query: '',
+    genres: [],
+    isSearch: false,
   },
   mutations: {
     setAllShows(state, listShows) {
       state.shows = listShows;
     },
-    updateSearch(state, query){state.query = query;},
+    updateSearch(state, query){
+      state.query = query;
+    },
   },
   getters: {
     getFirstTenShows: state => {
@@ -21,8 +25,13 @@ export default new Vuex.Store({
       return state.shows.slice(0,10)
     },
     getSearchedShows: state => {
-      return state.shows.filter((show) => {
-        return show.name.toLowerCase().includes(state.query)})
+      return state.shows.filter((show) => show.name.toLowerCase().includes(state.query))
+    },
+    getGenres: state => {
+      let genres = state.shows.map((show) => show.genres).flat(); // creates an array of all the genres received from the api call
+      const unique = Array.from(new Set(genres)); // new Set creates an array of all the unique genres - removes the duplicates
+      state.genres = unique;
+      return state.genres;
     }
   },
   actions: {
@@ -34,6 +43,6 @@ export default new Vuex.Store({
     },
     async searchShows ({ commit }, query) {
       commit('updateSearch', query);
-    },
+    }
   },
 })
