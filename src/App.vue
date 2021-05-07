@@ -12,7 +12,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
 @import 'bootstrap';
 
@@ -32,7 +31,7 @@ export default {
     color: #2c3e50;
 
     &.router-link-exact-active {
-      color: #4a42b9;
+      color: #15b182;
     }
   }
 }

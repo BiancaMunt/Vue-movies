@@ -1,12 +1,15 @@
 <template>
   <div class="search">
-    <input
-      type="text"
-      v-model="query"
-      @keypress.enter="searchShows(query)"
-      placeholder="Search your favorite show"
-    />
-    <button @click="searchShows(query)">Search</button>
+    <form class="search-form">
+      <input
+        type="text"
+        class="mr-2 "
+        v-model="query"
+        @keypress.enter="searchShows(query)"
+        placeholder="Search your favorite show"
+      />
+      <b-button class="sm" variant="info" @click="searchShows(query)">Search</b-button>
+    </form>
   </div>
 </template>
 
@@ -35,5 +38,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+  .search-form {
+    display: flex;
+    justify-content: center;
+  }
 
 </style>
