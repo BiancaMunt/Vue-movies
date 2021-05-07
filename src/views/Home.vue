@@ -1,72 +1,26 @@
 <template>
-  <div class="home">
+  <div class="home container-fluid">
   <h1><span>tv</span>Shows</h1>
     <Search />
-  <div v-for="genre in getGenres" :key="genre">
-    <h3 v-if="$store.state.isMain">{{ genre }}</h3>
-    <ul class="shows-list">
-      <li class="show-item" v-for="show in getSearchedShows" :key="show.id">
-        <article v-if="show.genres[0].includes(genre)">
-        <h4>{{ show.name }}</h4>
-        <router-link :to="`/${show.id}`">
-          <img :src="show.image.medium" :alt="show.name">
-        </router-link> 
-        </article>
-      </li>
-    </ul>
-  </div>
+    <Shows />
   </div>
 </template>
 
 <script>
 
-import { mapGetters, mapActions } from 'vuex';
 import Search from '../components/Search';
+import Shows from '../components/Shows';
 
 export default {
   name: "Home",
   components: {
-    Search
+    Search,
+    Shows
   },
-  data() {
-    return {
-      filteredShows: []
-    }
-  },
-  created() {
-     this.getAllData();
-     
-  },
-  methods: {
-  ...mapActions([
-      'getAllData',
-    ])
-  },
-  computed: {
-    ...mapGetters([
-      'getSearchedShows',
-      'getGenres',
-    ]),
-  }
 }
 
 </script>
 
 <style lang="scss" scoped>
-  .shows-list {
-    margin-top: 2rem;
-    list-style: none;
-    display: table;
-    width: 100%;
-    li {
-      display: table-cell;
-    }
-    img {
-    display: block;
-    text-align: center;
-    margin: 0 5px;
-    background: #999;
-    }
-  }
 
 </style>
