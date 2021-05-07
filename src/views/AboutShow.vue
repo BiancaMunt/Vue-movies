@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about-show">
     <div>
       <h3>{{show.name}}</h3>
       <p>Average Rating: {{show.rating.average}}</p>
