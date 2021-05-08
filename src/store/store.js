@@ -25,10 +25,6 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    getFirstTenShows: state => {
-      if(state.shows)
-      return state.shows.slice(0,10)
-    },
     getSearchedShows: state => {
       return state.shows.filter((show) => show.name.toLowerCase().includes(state.query))
     },

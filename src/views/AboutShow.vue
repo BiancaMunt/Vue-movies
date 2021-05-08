@@ -1,11 +1,15 @@
 <template>
-  <div class="about-show">
+  <div class="about-show container">
     <div>
       <h3>{{show.name}}</h3>
-      <p>Average Rating: {{show.rating.average}}</p>
-      <div v-html="show.summary"></div>
+      <div class="card flex-md-row">
+        <img class="card-image-left" :src="show.image.medium" :alt="show.name">
+        <div class="card-body d-flex flex-column align-items-start">
+          <p>Average Rating: {{show.rating.average}}</p>
+          <div v-html="show.summary"></div>
+        </div>
+      </div> 
     </div>
-    <img :src="show.image.medium" :alt="show.name">
   </div>
 </template>
 
