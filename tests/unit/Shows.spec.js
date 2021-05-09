@@ -1,5 +1,5 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
-import Vuex from 'vuex'
+import Vuex from 'vuex';
 import Shows from '@/components/Shows';
 
 const localVue = createLocalVue()
@@ -36,6 +36,11 @@ describe('Shows component Testing', () => {
 
   it('should load Shows', () => {
     expect(wrapper).toBeTruthy();
+  });
+
+  it('should find div tag', () => {
+    const div = wrapper.find('div')
+    expect(div.exists()).toBe(true);
   });
 
   it('should call getAllData action', async () => {

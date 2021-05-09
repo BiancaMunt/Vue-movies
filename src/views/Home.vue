@@ -1,6 +1,5 @@
 <template>
   <div class="home container-fluid">
-  <h1><span>tv</span>Shows</h1>
     <Search />
     <Shows />
   </div>
@@ -20,7 +19,3 @@ export default {
 }
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

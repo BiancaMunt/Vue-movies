@@ -1,33 +1,39 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
+      <router-link to="/">
+        <h1><span>tv</span>Shows</h1>
+      </router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
+
 @import 'bootstrap';
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: emoji, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #502c41;
 }
 
 #nav {
   padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  span {
+    color: #F3C000;
+  }
 
-    &.router-link-exact-active {
-      color: #15b182;
-    }
+  h1 {
+    color: #17A2B8;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
   }
 }
 </style>

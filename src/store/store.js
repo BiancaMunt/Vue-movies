@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import AppServices from '../services/AppServices'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import AppServices from '../services/AppServices';
 
 Vue.use(Vuex)
 
@@ -39,6 +39,9 @@ export default new Vuex.Store({
     async getAllData ({ commit }) {
       let shows = await AppServices.getAllShows();
       if(shows){
+        shows.data.sort(function(a , b) {
+          return a.rating.average > b.rating.average ? -1 : 1;
+        });
         commit('setAllShows', shows.data);
       }
     },
