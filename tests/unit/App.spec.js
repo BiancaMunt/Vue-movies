@@ -35,4 +35,4 @@ describe('App Testing', () => {
       expect(results).toHaveNoViolations()
     })
   });
-})
+});

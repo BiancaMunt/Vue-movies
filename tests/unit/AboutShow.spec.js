@@ -17,4 +17,4 @@ describe('Shows component Testing', () => {
   it('should load the AboutShow view', () => {
     expect(wrapper).toBeTruthy()
   });
-})
+});

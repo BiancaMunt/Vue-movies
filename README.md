@@ -58,6 +58,3 @@ Further divide the app into smaller components.
 Add unit tests for the store and improve existing ut's. Add end to end tests to test the app from the user's perspective.
 
 Fix minor bugs and update layout.
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

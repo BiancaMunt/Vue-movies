@@ -4,7 +4,7 @@
       <h3 class="bg-info text-white" v-if="$store.state.isMain">{{ genre }}</h3>
       <ul class="shows-list overflow-auto mt-2 pl-0">
         <li class="show-item" v-for="(show, index) in getSearchedShows" :key="index">
-          <article :class="`show-card-${$store.state.isMain}`" v-if="show.genres.includes(genre)" >
+          <article class="`show-card" v-if="show.genres.includes(genre)" >
             <div class="text-info mb-2">{{ show.name }}</div>
             <router-link :to="`/${show.id}`">
               <img :src="show.image.medium" :alt="show.name">
@@ -50,14 +50,5 @@ import { mapGetters, mapActions } from 'vuex';
       width: 250px;
     }
   }
-
- 
-  .show-card-false:first-child {
-    display: block !important;
-    .show-card-false {
-      display: none
-    }
-  }
-  
 
 </style>
