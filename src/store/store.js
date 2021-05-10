@@ -49,7 +49,7 @@ export default new Vuex.Store({
       if(query.length !== 0) {
         commit('updateSearch', query);
       } else {
-        commit('clearSearch', query);
+        commit('clearSearch', '');
       }
     }
   },

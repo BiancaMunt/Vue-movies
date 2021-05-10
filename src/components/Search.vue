@@ -2,6 +2,7 @@
   <div class="search">
     <form class="search-form">
       <input
+        id="input"
         type="text"
         class="mr-2 "
         v-model="query"
@@ -9,6 +10,7 @@
         placeholder="Search your favorite show"
       />
       <b-button class="sm" variant="info" @click="searchShows(query)">Search</b-button>
+      <b-button class="sm ml-1" variant="info" @click="clearSearch()">Clear</b-button>
     </form>
   </div>
 </template>
@@ -26,12 +28,16 @@ export default {
   methods: {
   ...mapActions([
     'searchShows'
-    ])
+    ]),
+    clearSearch(){
+      this.query = '';
+      this.searchShows('');
+    }
   },
   computed: {
     ...mapGetters([
       'getSearchedShows',
-    ]),
+    ])
   }
 }
   
